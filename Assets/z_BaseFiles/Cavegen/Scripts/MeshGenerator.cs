@@ -16,8 +16,11 @@ public class MeshGenerator : MonoBehaviour {
 	List<List<int>> outlines = new List<List<int>> ();
 	HashSet<int> checkedVertices = new HashSet<int>();
 
+	public AudioSource Remap;
+
 	public void GenerateMesh(int[,] map, float squareSize) {
 
+		Remap.Play();
 		triangleDictionary.Clear ();
 		outlines.Clear ();
 		checkedVertices.Clear ();
