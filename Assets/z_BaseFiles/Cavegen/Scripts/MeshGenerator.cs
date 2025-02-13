@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class MeshGenerator : MonoBehaviour {
 
@@ -18,7 +19,7 @@ public class MeshGenerator : MonoBehaviour {
 
 	public AudioSource Remap;
 
-	public void GenerateMesh(int[,] map, float squareSize) {
+    public void GenerateMesh(int[,] map, float squareSize) {
 
 		Remap.Play();
 		triangleDictionary.Clear ();

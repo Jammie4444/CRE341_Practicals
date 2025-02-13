@@ -6,6 +6,7 @@ using Unity.AI.Navigation;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 using UnityEditor.ShaderGraph.Internal;
+using TMPro;
 
 public class MapGenerator : MonoBehaviour {
 
@@ -32,7 +33,10 @@ public class MapGenerator : MonoBehaviour {
 	[SerializeField] private float raycastHeight = 50f; // Height above the plane from which to cast rays.
     [SerializeField] private int maxAttempts = 1000; // Safety limit to avoid an infinite loop.
 
-	void Start() {
+    [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] float remainingTime;
+
+    void Start() {
 
 
         if (groundObject == null)
@@ -54,7 +58,7 @@ public class MapGenerator : MonoBehaviour {
 
 
     void Update() {
-		if (Input.GetMouseButtonDown(1)) {
+		if (Input.GetMouseButtonDown(1) && remainingTime < 0.1) {
 			GenerateMap();
 			surface.BuildNavMesh();
 			PlacePlayer();
@@ -69,8 +73,26 @@ public class MapGenerator : MonoBehaviour {
 
 			SpawnWayPoints(numberWaypoints);
 			SpawnNPCs(numberOfNPCs);
-		}
-	}
+
+			remainingTime = 10;
+            timerText.color = Color.white;
+        }
+
+        {
+            if (remainingTime > 0)
+            {
+                remainingTime -= Time.deltaTime;
+            }
+            else if (remainingTime < 0)
+            {
+                remainingTime = 0;
+                timerText.color = Color.green;
+            }
+            int minutes = Mathf.FloorToInt(remainingTime / 60);
+            int seconds = Mathf.FloorToInt(remainingTime % 60);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+    }
 
 	void GenerateMap() {
 		map = new int[width,height];
