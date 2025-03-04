@@ -482,7 +482,7 @@ public class MapGenerator : MonoBehaviour {
     {
         Vector3 randomPlayerPos = GetRandomGroundPoint();
 
-		player.transform.position = randomPlayerPos;
+		//player.transform.position = randomPlayerPos;
     }
 	
     // Call this method to obtain a random point on an object tagged "Ground".
