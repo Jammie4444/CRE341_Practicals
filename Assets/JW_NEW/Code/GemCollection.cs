@@ -1,0 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GemCollection : MonoBehaviour
+{
+    public Item item = new Item("Item Name", 1);
+
+    private void OmTriggerEnter(Collider other)
+    {
+         if (other.CompareTag("Player"))
+         {
+            Inventory.instance.AddItem(item);
+            Destroy(gameObject);
+         }
+    }
+}
