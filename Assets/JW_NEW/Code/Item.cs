@@ -1,6 +1,5 @@
-using UnityEngine;
-
-public class Item : MonoBehaviour
+[System.Serializable]
+public class Item
 {
     public string name;
     public int count;

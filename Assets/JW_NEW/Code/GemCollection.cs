@@ -6,7 +6,7 @@ public class GemCollection : MonoBehaviour
 {
     public Item item = new Item("Item Name", 1);
 
-    private void OmTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
          if (other.CompareTag("Player"))
          {
