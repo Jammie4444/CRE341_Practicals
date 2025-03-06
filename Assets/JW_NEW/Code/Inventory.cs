@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;  
     public List<Item> items = new List<Item>();
+
+    [SerializeField] TextMeshProUGUI gemText;
 
     void Awake()
     {
@@ -35,20 +38,20 @@ public class Inventory : MonoBehaviour
         Debug.Log(itemToAdd.count + " " +  itemToAdd.name + "added to inventory");
     }
 
-    public void RemoveItem(Item itemToRemove)
-    {
-        foreach (var item in items)
-        {
-            if(item.name == itemToRemove.name)
-            {
-                item.count -= itemToRemove.count;
-                if(item.count <= 0)
-                {
-                    items.Remove(itemToRemove); 
-                }
-                break;
-            }
-        }
-        Debug.Log(itemToRemove.count + " " + itemToRemove.name + "removed from inventory");
-    }
+    //public void RemoveItem(Item itemToRemove)
+    //{
+    //    foreach (var item in items)
+    //    {
+    //        if(item.name == itemToRemove.name)
+    //        {
+    //            item.count -= itemToRemove.count;
+    //            if(item.count <= 0)
+    //            {
+    //                items.Remove(itemToRemove); 
+    //            }
+    //            break;
+    //        }
+    //    }
+    //    Debug.Log(itemToRemove.count + " " + itemToRemove.name + "removed from inventory");
+    //}
 }

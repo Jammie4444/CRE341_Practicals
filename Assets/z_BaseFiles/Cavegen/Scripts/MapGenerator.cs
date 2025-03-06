@@ -33,8 +33,10 @@ public class MapGenerator : MonoBehaviour {
 	[SerializeField] private float raycastHeight = 50f; // Height above the plane from which to cast rays.
     [SerializeField] private int maxAttempts = 1000; // Safety limit to avoid an infinite loop.
 
+	//TIMER
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float remainingTime;
+	//TIMER
 
     void Start() {
 
@@ -74,11 +76,14 @@ public class MapGenerator : MonoBehaviour {
 			SpawnWayPoints(numberWaypoints);
 			SpawnNPCs(numberOfNPCs);
 
+			//TIMER
 			remainingTime = 10;
             timerText.color = Color.white;
+			//TIMER
         }
 
         {
+			//TIMER
             if (remainingTime > 0)
             {
                 remainingTime -= Time.deltaTime;
@@ -91,6 +96,7 @@ public class MapGenerator : MonoBehaviour {
             int minutes = Mathf.FloorToInt(remainingTime / 60);
             int seconds = Mathf.FloorToInt(remainingTime % 60);
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+			//TIMER
         }
     }
 

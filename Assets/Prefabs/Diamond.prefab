@@ -75,6 +75,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 36e3d13a4c6211c4389f9cd8ed384044, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1367252711998234170}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 36e3d13a4c6211c4389f9cd8ed384044, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 166174668427064312}
   m_SourcePrefab: {fileID: 100100000, guid: 36e3d13a4c6211c4389f9cd8ed384044, type: 3}
 --- !u!1 &7993263753963328838 stripped
 GameObject:
@@ -102,3 +105,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.352165, y: 2.0670545, z: 2.4499395}
   m_Center: {x: -0.033983443, y: 0.29518914, z: 0.037219357}
+--- !u!114 &166174668427064312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7993263753963328838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f4ee96aa307b54083abd476661d42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    name: Diamond
+    count: 1
