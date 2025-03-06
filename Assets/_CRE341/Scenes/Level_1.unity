@@ -627,6 +627,7 @@ GameObject:
   - component: {fileID: 403342163}
   - component: {fileID: 403342165}
   - component: {fileID: 403342164}
+  - component: {fileID: 403342166}
   m_Layer: 5
   m_Name: DiamondCount
   m_TagString: Untagged
@@ -741,7 +742,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -428.4165, w: -147.03918}
+  m_margin: {x: 0, y: 0, z: -324.51587, w: -49.233276}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -755,6 +756,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403342162}
   m_CullTransparentMesh: 1
+--- !u!114 &403342166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403342162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c197187306a6dc4eb1db418f0cc2304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &414995375
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,7 +2873,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1094, y: 601}
+  m_AnchoredPosition: {x: -1094, y: 511}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1170826928
@@ -2951,7 +2964,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -428.4165, w: -147.03918}
+  m_margin: {x: 0, y: 0, z: -428.4165, w: -44.48755}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3272,7 +3285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1094, y: 601}
+  m_AnchoredPosition: {x: -1094, y: 481}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1278662119
@@ -3363,7 +3376,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -428.4165, w: -147.03918}
+  m_margin: {x: 0, y: 86.47583, z: -428.4165, w: -147.03918}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3736,26 +3749,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452556653}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1467981326 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7290589346607299502, guid: 4d644a279b49d8e41b636b30003995f7, type: 3}
-  m_PrefabInstance: {fileID: 304540062841125341}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1467981329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1467981326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f4ee96aa307b54083abd476661d42c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item:
-    name: Ruby
-    count: 1
 --- !u!1 &1559428518 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1571807527175990118, guid: 2e1a41d7362b3dd45bc95871553172dc, type: 3}
@@ -3897,8 +3890,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9b2130cf06b8548899337900aeca8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diamondText: {fileID: 403342164}
+  rubyText: {fileID: 1170826928}
+  emeraldText: {fileID: 1278662119}
+  diamondGems: 0
+  rubyGems: 0
+  emeraldGems: 0
   items: []
-  gemText: {fileID: 0}
 --- !u!1 &1606607954
 GameObject:
   m_ObjectHideFlags: 0
@@ -5798,10 +5796,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7290589346607299502, guid: 4d644a279b49d8e41b636b30003995f7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1467981329}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d644a279b49d8e41b636b30003995f7, type: 3}
 --- !u!1 &2114283753834967212
 GameObject:
