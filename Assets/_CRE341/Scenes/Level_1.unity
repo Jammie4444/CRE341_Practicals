@@ -3897,6 +3897,7 @@ MonoBehaviour:
   rubyGems: 0
   emeraldGems: 0
   items: []
+  gemCheck: 0
 --- !u!1 &1606607954
 GameObject:
   m_ObjectHideFlags: 0
