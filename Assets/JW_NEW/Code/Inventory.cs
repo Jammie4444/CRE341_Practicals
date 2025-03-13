@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -16,6 +17,9 @@ public class Inventory : MonoBehaviour
 
     public static Inventory instance;  
     public List<Item> items = new List<Item>();
+
+    public bool gemCheck = true;
+
 
     void Awake()
     {
@@ -34,29 +38,30 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(Item itemToAdd)
     {
+        if (itemToAdd.name == "Diamond")
+        {
+            Debug.Log("Diamond Collected");
+            diamondGems += 1;
+        }
+        if (itemToAdd.name == "Ruby")
+        {
+            Debug.Log("Ruby Collected");
+            rubyGems += 1;
+        }
+        if (itemToAdd.name == "Emerald")
+        {
+            Debug.Log("Emerald Collected");
+            emeraldGems += 1;
+        }
+
         bool itemExists = false;
 
         foreach (Item item in items)
         {
             if (item.name == itemToAdd.name)
             {
-                if (itemToAdd.name == "Diamond")
-                {
-                    Debug.Log("Diamond Collected");
-                    diamondGems += 1;
-                }
-                if (itemToAdd.name == "Ruby")
-                {
-                    Debug.Log("Ruby Collected");
-                    rubyGems++; 
-                }
-                if (itemToAdd.name == "Emerald")
-                {
-                    Debug.Log("Emerald Collected");
-                    emeraldGems++;
-                }
                 item.count += itemToAdd.count;
-                itemExists = true;  
+                itemExists = true;
                 break;
             }
         }
