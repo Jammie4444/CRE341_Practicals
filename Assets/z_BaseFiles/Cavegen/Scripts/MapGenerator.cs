@@ -8,9 +8,13 @@ using Random = UnityEngine.Random;
 using UnityEditor.ShaderGraph.Internal;
 using TMPro;
 
-public class MapGenerator : MonoBehaviour {
+public class MapGenerator : MonoBehaviour 
+{
+	public GameObject Diamond;
+    public GameObject Ruby;
+    public GameObject Emerald;
 
-	public GameObject player; // Reference to your player prefab
+    public GameObject player; // Reference to your player prefab
 	public GameObject npcPrefab, waypointsPrefab; // Reference to your NPC prefab
 	public GameObject groundObject;
 	public int width;
@@ -51,10 +55,13 @@ public class MapGenerator : MonoBehaviour {
 		surface.BuildNavMesh();
 
         // After the NavMesh is generated/baked, place the player
-        PlacePlayer();
+        PlaceGems();
 
 		SpawnWayPoints(numberWaypoints);
 		SpawnNPCs(numberOfNPCs);
+
+		// TODO: Refactor Spawn NPC to spawn Gems call it here
+		//			This will work on the first time the map gens but not on right click to spawn a new map
 	}
 
 
@@ -63,7 +70,7 @@ public class MapGenerator : MonoBehaviour {
 		if (Input.GetMouseButtonDown(1) && remainingTime < 0.1) {
 			GenerateMap();
 			surface.BuildNavMesh();
-			PlacePlayer();
+			PlaceGems();
 
 			// delete existing NPCs and spawn new ones
 			GameObject[] go_npcs = GameObject.FindGameObjectsWithTag("NPC");
@@ -75,9 +82,10 @@ public class MapGenerator : MonoBehaviour {
 
 			SpawnWayPoints(numberWaypoints);
 			SpawnNPCs(numberOfNPCs);
+            // TODO: Refactor Spawn NPC to spawn Gems call it here
 
-			//TIMER
-			remainingTime = 10;
+            //TIMER
+            remainingTime = 10;
             timerText.color = Color.white;
 			//TIMER
         }
@@ -482,13 +490,19 @@ public class MapGenerator : MonoBehaviour {
 		}
 	}
 
-	
-	// another approach that didn't quite work
-	private void PlacePlayer()
+	private void PlaceGems()
     {
-        Vector3 randomPlayerPos = GetRandomGroundPoint();
+        Vector3 randomDiamondPos = GetRandomGroundPoint();
+        Vector3 randomRubyPos = GetRandomGroundPoint();
+        Vector3 randomEmeraldPos = GetRandomGroundPoint();
 
-		//player.transform.position = randomPlayerPos;
+		Instantiate(Diamond, randomDiamondPos, Quaternion.identity);
+        Instantiate(Ruby, randomRubyPos, Quaternion.identity);
+        Instantiate(Emerald, randomEmeraldPos, Quaternion.identity);
+
+        Diamond.transform.position = randomDiamondPos;
+        Ruby.transform.position = randomRubyPos;
+        Emerald.transform.position = randomEmeraldPos;
     }
 	
     // Call this method to obtain a random point on an object tagged "Ground".
@@ -518,7 +532,14 @@ public class MapGenerator : MonoBehaviour {
         Debug.LogWarning("No valid 'Ground' point found.");
         return Vector3.zero;
 	}
-	private void SpawnNPCs(int count)
+
+    // TODO: Refactor Spawn NPC function here for spawn gems call above
+    private void SpawnGem(int count /*, Gem gem  */)
+	{
+
+	}
+
+    private void SpawnNPCs(int count)
 	{
 		int maxAttempts = 1000;
 		for (int i = 0; i < count; i++)
