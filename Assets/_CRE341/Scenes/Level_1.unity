@@ -227,6 +227,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96218049}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &122196598 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e9706ddfcbfdeb74eb3c9760e54e2b9b, type: 3}
+  m_PrefabInstance: {fileID: 205614240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &205614240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -294,7 +299,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e9706ddfcbfdeb74eb3c9760e54e2b9b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2060568936}
   m_SourcePrefab: {fileID: 100100000, guid: e9706ddfcbfdeb74eb3c9760e54e2b9b, type: 3}
 --- !u!1 &291985328
 GameObject:
@@ -362,7 +370,6 @@ Transform:
   - {fileID: 1452556654}
   - {fileID: 982176904}
   - {fileID: 1930435375}
-  - {fileID: 1737630651}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &320919902
@@ -1032,7 +1039,7 @@ MonoBehaviour:
   height: 128
   seed: 71.18186
   useRandomSeed: 1
-  randomFillPercent: 26
+  randomFillPercent: 46
   numberOfNPCs: 5
   numberOfGems: 5
   npcs: []
@@ -2624,7 +2631,8 @@ GameObject:
   - component: {fileID: 934016159}
   - component: {fileID: 934016158}
   - component: {fileID: 934016157}
-  m_Layer: 0
+  - component: {fileID: 934016160}
+  m_Layer: 8
   m_Name: TopRoof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2699,6 +2707,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &934016160
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934016155}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.99999994, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &954596266 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
@@ -3829,6 +3858,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1571807527175990118, guid: 2e1a41d7362b3dd45bc95871553172dc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1559428532}
+    - targetCorrespondingSourceObject: {fileID: 1571807527175990118, guid: 2e1a41d7362b3dd45bc95871553172dc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1559428540}
   m_SourcePrefab: {fileID: 100100000, guid: 2e1a41d7362b3dd45bc95871553172dc, type: 3}
 --- !u!1 &1347542825
 GameObject:
@@ -4153,6 +4185,19 @@ MonoBehaviour:
   emeraldGems: 0
   items: []
   gemCheck: 0
+--- !u!114 &1559428540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559428518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e508adde0dee58942ad3bd42047e8549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerReach: 3
 --- !u!1 &1606607954
 GameObject:
   m_ObjectHideFlags: 0
@@ -4451,12 +4496,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737630650}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.097162, y: 0.6, z: 30.039999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 320919901}
+  m_Father: {fileID: 1914016689}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1737630652
 Animator:
@@ -4976,6 +5021,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2115750292}
+  - {fileID: 1737630651}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1914016690
@@ -5707,6 +5753,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e9706ddfcbfdeb74eb3c9760e54e2b9b, type: 3}
   m_PrefabInstance: {fileID: 205614240}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &2060568936
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122196598}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4f7d4602a484cae4898a708dbe1c4810, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2084445384
 PrefabInstance:
   m_ObjectHideFlags: 0
