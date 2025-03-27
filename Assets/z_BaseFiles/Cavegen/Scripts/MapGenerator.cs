@@ -16,7 +16,8 @@ public class MapGenerator : MonoBehaviour
 
     public GameObject player; // Reference to your player prefab
 	public GameObject npcPrefab, waypointsPrefab; // Reference to your NPC prefab
-	public GameObject groundObject;
+    public GameObject gemPrefab;
+    public GameObject groundObject;
 	public int width;
 	public int height;
 
@@ -26,9 +27,11 @@ public class MapGenerator : MonoBehaviour
 	[Range(0,58)]
 	public int randomFillPercent;
 
-	[SerializeField] int numberOfNPCs = 5;
+    [SerializeField] int numberOfNPCs = 5;
+    [SerializeField] int numberOfGems = 5;
 	[SerializeField] List<GameObject> npcs = new List<GameObject>();
-	[SerializeField] int numberWaypoints = 4;
+    [SerializeField] List<GameObject> gems = new List<GameObject>();
+    [SerializeField] int numberWaypoints = 4;
 	[SerializeField] List<GameObject> waypoints = new List<GameObject>();
 
 	int[,] map;
@@ -58,10 +61,8 @@ public class MapGenerator : MonoBehaviour
         PlaceGems();
 
 		SpawnWayPoints(numberWaypoints);
-		SpawnNPCs(numberOfNPCs);
-
-		// TODO: Refactor Spawn NPC to spawn Gems call it here
-		//			This will work on the first time the map gens but not on right click to spawn a new map
+        SpawnNPCs(numberOfNPCs);
+        SpawnGem(numberOfGems);
 	}
 
 
@@ -70,7 +71,6 @@ public class MapGenerator : MonoBehaviour
 		if (Input.GetMouseButtonDown(1) && remainingTime < 0.1) {
 			GenerateMap();
 			surface.BuildNavMesh();
-			PlaceGems();
 
 			// delete existing NPCs and spawn new ones
 			GameObject[] go_npcs = GameObject.FindGameObjectsWithTag("NPC");
@@ -81,8 +81,8 @@ public class MapGenerator : MonoBehaviour
 			foreach (GameObject wp in go_wps) Destroy(wp);
 
 			SpawnWayPoints(numberWaypoints);
-			SpawnNPCs(numberOfNPCs);
-            // TODO: Refactor Spawn NPC to spawn Gems call it here
+			SpawnGem(numberOfGems);
+            PlaceGems();
 
             //TIMER
             remainingTime = 10;
@@ -533,11 +533,42 @@ public class MapGenerator : MonoBehaviour
         return Vector3.zero;
 	}
 
-    // TODO: Refactor Spawn NPC function here for spawn gems call above
-    private void SpawnGem(int count /*, Gem gem  */)
-	{
+    private void SpawnGem(int count)
+    {
+        int maxAttempts = 1000;
+        for (int i = 0; i < count; i++)
+        {
+            Vector3 randomGemPos = Vector3.zero;
+            bool validPositionFound = false;
+            int attempts = 0;
 
-	}
+            while (!validPositionFound && attempts < maxAttempts)
+            {
+                randomGemPos = GetRandomGroundPoint();
+                if (randomGemPos != Vector3.zero)
+                {
+                    NavMeshHit hit;
+                    if (NavMesh.SamplePosition(randomGemPos, out hit, 1.0f, NavMesh.AllAreas))
+                    {
+                        randomGemPos = hit.position;
+                        validPositionFound = true;
+                    }
+                }
+                attempts++;
+            }
+
+            if (validPositionFound)
+            {
+                Instantiate(gemPrefab, randomGemPos, Quaternion.identity);
+                // add the NPC to the list
+                gems.Add(gemPrefab);
+            }
+            else
+            {
+                Debug.LogWarning("Failed to find a valid NavMesh point for Gem.");
+            }
+        }
+    }
 
     private void SpawnNPCs(int count)
 	{
