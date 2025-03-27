@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77cdaf86f7b94dc4192fec9a941d22f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.075794
+      value: 20.274092
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77cdaf86f7b94dc4192fec9a941d22f3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77cdaf86f7b94dc4192fec9a941d22f3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 40.08026
+      value: -47.12416
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77cdaf86f7b94dc4192fec9a941d22f3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -82,9 +82,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 77cdaf86f7b94dc4192fec9a941d22f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4674142285451344324}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 77cdaf86f7b94dc4192fec9a941d22f3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7296991980865201854}
   m_SourcePrefab: {fileID: 100100000, guid: 77cdaf86f7b94dc4192fec9a941d22f3, type: 3}
 --- !u!1 &6718718668950992449 stripped
 GameObject:
@@ -127,31 +124,3 @@ MonoBehaviour:
   item:
     name: Emerald
     count: 1
---- !u!114 &7296991980865201854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6718718668950992449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4663789d8e7ef1842b28912583f0a066, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: Mine Emerald
-  onInteraction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6718718668950992449}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
