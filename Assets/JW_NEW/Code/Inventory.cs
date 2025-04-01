@@ -20,7 +20,6 @@ public class Inventory : MonoBehaviour
 
     public bool gemCheck = true;
 
-
     void Awake()
     {
         if (instance != null)
