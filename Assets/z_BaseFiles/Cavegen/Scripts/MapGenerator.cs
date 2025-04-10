@@ -11,13 +11,7 @@ using UnityEngineInternal;
 
 public class MapGenerator : MonoBehaviour 
 {
-	public GameObject Rock1;
-	public GameObject Rock2;
-	public GameObject Rock3;
-	public GameObject Rock4;
-	public GameObject Rock5;
-	public GameObject Rock6;
-	public GameObject Rock7;
+	public GameObject Rock1, Rock2, Rock3, Rock4, Rock5, Rock6;
 
 	public GameObject Diamond;
     public GameObject Ruby;
@@ -58,6 +52,14 @@ public class MapGenerator : MonoBehaviour
     {
 		if (rock == true)
 		{
+            RockScatter();
+            RockScatter();
+            RockScatter();
+            RockScatter();
+            RockScatter();
+            RockScatter();
+            RockScatter();
+            RockScatter();
             RockScatter();
             RockScatter();
             RockScatter();
@@ -536,7 +538,6 @@ public class MapGenerator : MonoBehaviour
         Vector3 randomRock4Pos = GetRandomGroundPoint();
         Vector3 randomRock5Pos = GetRandomGroundPoint();
         Vector3 randomRock6Pos = GetRandomGroundPoint();
-        Vector3 randomRock7Pos = GetRandomGroundPoint();
 
         Instantiate(Rock1, randomRock1Pos, Quaternion.identity);
         Instantiate(Rock2, randomRock2Pos, Quaternion.identity);
@@ -544,7 +545,6 @@ public class MapGenerator : MonoBehaviour
         Instantiate(Rock4, randomRock4Pos, Quaternion.identity);
         Instantiate(Rock5, randomRock5Pos, Quaternion.identity);
         Instantiate(Rock6, randomRock6Pos, Quaternion.identity);
-        Instantiate(Rock7, randomRock7Pos, Quaternion.identity);
 
         Rock1.transform.position = randomRock1Pos;
         Rock2.transform.position = randomRock2Pos;
@@ -552,7 +552,6 @@ public class MapGenerator : MonoBehaviour
         Rock4.transform.position = randomRock4Pos;
         Rock5.transform.position = randomRock5Pos;
         Rock6.transform.position = randomRock6Pos;
-        Rock7.transform.position = randomRock7Pos;
     }
 	
     // Call this method to obtain a random point on an object tagged "Ground".

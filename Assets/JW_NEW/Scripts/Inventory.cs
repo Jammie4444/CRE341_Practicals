@@ -43,18 +43,19 @@ public class Inventory : MonoBehaviour
             SceneManager.LoadScene("End");
         }
   
-            if (timerTime >= 0)
-            {
-                timerTime += Time.deltaTime;
-            }
-            else if (timerTime < 0)
-            {
-                timerTime = 0;
-                timerText.color = Color.green;
-            }
-            int minutes = Mathf.FloorToInt(timerTime / 60);
-            int seconds = Mathf.FloorToInt(timerTime % 60);
-            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        if (timerTime >= 0)
+        {
+            timerTime += Time.deltaTime;
+        }
+        else if (timerTime < 0)
+        {
+            timerTime = 0;
+            timerText.color = Color.green;
+
+        }
+        int minutes = Mathf.FloorToInt(timerTime / 60);
+        int seconds = Mathf.FloorToInt(timerTime % 60);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         
     }
 

@@ -12,6 +12,7 @@ TagManager:
   - Flocker
   - Interactable
   - Gem
+  - Rock
   layers:
   - Default
   - TransparentFX
