@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77cdaf86f7b94dc4192fec9a941d22f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.5761795
+      value: -12.52932
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77cdaf86f7b94dc4192fec9a941d22f3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77cdaf86f7b94dc4192fec9a941d22f3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.996
+      value: -51.414673
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77cdaf86f7b94dc4192fec9a941d22f3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -124,3 +124,4 @@ MonoBehaviour:
   item:
     name: Emerald
     count: 1
+  animator: {fileID: 0}

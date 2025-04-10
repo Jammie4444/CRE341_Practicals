@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Inventory : MonoBehaviour
 {
@@ -33,6 +34,11 @@ public class Inventory : MonoBehaviour
         diamondText.text = "Diamonds: " + diamondGems + "/3";
         rubyText.text = "Rubys: " + rubyGems + "/3";
         emeraldText.text = "Emeralds: " + emeraldGems + "/3";
+
+        if (diamondGems == 3 & rubyGems == 3 & emeraldGems == 3)
+        {
+            SceneManager.LoadScene("End");
+        }
     }
 
     public void AddItem(Item itemToAdd)

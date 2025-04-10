@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36e3d13a4c6211c4389f9cd8ed384044, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.586927
+      value: 6.152809
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36e3d13a4c6211c4389f9cd8ed384044, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36e3d13a4c6211c4389f9cd8ed384044, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.188826
+      value: -2.5485153
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36e3d13a4c6211c4389f9cd8ed384044, type: 3}
       propertyPath: m_LocalRotation.w
@@ -124,3 +124,4 @@ MonoBehaviour:
   item:
     name: Diamond
     count: 1
+  animator: {fileID: 0}
