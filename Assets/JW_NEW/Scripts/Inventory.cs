@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float timerTime;
+
+    public GameObject image;
 
     void Awake()
     {
@@ -49,9 +52,9 @@ public class Inventory : MonoBehaviour
         }
         else if (timerTime < 0)
         {
+            image.SetActive(true);
             timerTime = 0;
             timerText.color = Color.green;
-
         }
         int minutes = Mathf.FloorToInt(timerTime / 60);
         int seconds = Mathf.FloorToInt(timerTime % 60);

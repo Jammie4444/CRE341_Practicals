@@ -48,6 +48,8 @@ public class MapGenerator : MonoBehaviour
 
 	public bool rock = true;
 
+	public GameObject image;
+
     void Start()
     {
 		if (rock == true)
@@ -102,6 +104,8 @@ public class MapGenerator : MonoBehaviour
 		{
 			GenerateMap();
 			surface.BuildNavMesh();
+
+			image.SetActive(false);
 
 			// delete existing NPCs and spawn new ones
 			GameObject[] go_npcs = GameObject.FindGameObjectsWithTag("NPC");
