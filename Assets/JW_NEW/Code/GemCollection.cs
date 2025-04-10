@@ -8,7 +8,7 @@ public class GemCollection : MonoBehaviour
 {
     public Item item = new Item("Item Name", 1);
 
-    //public Pickaxe pickaxe;
+    public Pickaxe pickaxe;
 
     public Animator animator;
 
@@ -17,7 +17,7 @@ public class GemCollection : MonoBehaviour
          if (other.CompareTag("Player"))
          {
             Inventory.instance.AddItem(item);
-            animator.SetBool("isMining", true);
+            //animator.SetBool("isMining", true);
             //pickaxe.PickAnim();
             Destroy(gameObject);
         }

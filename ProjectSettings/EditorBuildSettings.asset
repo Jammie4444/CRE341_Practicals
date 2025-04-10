@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/JW_NEW/Scenes/Level_1.unity
     guid: a3dc9c669c4b8b2479ef81607e304c8a
+  - enabled: 1
+    path: Assets/JW_NEW/Scenes/End.unity
+    guid: acb397f8e2dce2f41a903a7247bc4c99
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

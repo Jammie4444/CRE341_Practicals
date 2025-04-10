@@ -41,10 +41,8 @@ public class MapGenerator : MonoBehaviour
 	[SerializeField] private float raycastHeight = 50f; // Height above the plane from which to cast rays.
     [SerializeField] private int maxAttempts = 1000; // Safety limit to avoid an infinite loop.
 
-	//TIMER
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float remainingTime;
-	//TIMER
 
     void Start() {
 
@@ -69,7 +67,8 @@ public class MapGenerator : MonoBehaviour
 
 
     void Update() {
-		if (Input.GetMouseButtonDown(1) && remainingTime < 0.1) {
+		if (Input.GetMouseButtonDown(1) && remainingTime <= 0) 
+		{
 			GenerateMap();
 			surface.BuildNavMesh();
 
@@ -83,30 +82,24 @@ public class MapGenerator : MonoBehaviour
 
 			SpawnWayPoints(numberWaypoints);
 			//SpawnGem(numberOfGems);
-            PlaceGems();
-
-            //TIMER
-            remainingTime = 10;
-            timerText.color = Color.white;
-			//TIMER
+			PlaceGems();
+            remainingTime = 25;
         }
 
         {
-			//TIMER
-            if (remainingTime > 0)
-            {
-                remainingTime -= Time.deltaTime;
-            }
-            else if (remainingTime < 0)
-            {
-                remainingTime = 0;
-                timerText.color = Color.green;
-            }
-            int minutes = Mathf.FloorToInt(remainingTime / 60);
-            int seconds = Mathf.FloorToInt(remainingTime % 60);
-            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-			//TIMER
-        }
+			if (remainingTime > 0)
+			{
+				remainingTime -= Time.deltaTime;
+			}
+			else if (remainingTime < 0)
+			{
+				remainingTime = 0;
+				timerText.color = Color.green;
+			}
+			int minutes = Mathf.FloorToInt(remainingTime / 60);
+			int seconds = Mathf.FloorToInt(remainingTime % 60);
+			timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+		}
     }
 
 	void GenerateMap() {

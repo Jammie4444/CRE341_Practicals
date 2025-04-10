@@ -21,6 +21,9 @@ public class Inventory : MonoBehaviour
 
     public bool gemCheck = true;
 
+    [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] float timerTime;
+
     void Awake()
     {
         if (instance != null)
@@ -39,6 +42,20 @@ public class Inventory : MonoBehaviour
         {
             SceneManager.LoadScene("End");
         }
+  
+            if (timerTime >= 0)
+            {
+                timerTime += Time.deltaTime;
+            }
+            else if (timerTime < 0)
+            {
+                timerTime = 0;
+                timerText.color = Color.green;
+            }
+            int minutes = Mathf.FloorToInt(timerTime / 60);
+            int seconds = Mathf.FloorToInt(timerTime % 60);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        
     }
 
     public void AddItem(Item itemToAdd)
