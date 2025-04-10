@@ -25,8 +25,6 @@ public class Inventory : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float timerTime;
 
-    public GameObject image;
-
     void Awake()
     {
         if (instance != null)
@@ -52,9 +50,7 @@ public class Inventory : MonoBehaviour
         }
         else if (timerTime < 0)
         {
-            image.SetActive(true);
             timerTime = 0;
-            timerText.color = Color.green;
         }
         int minutes = Mathf.FloorToInt(timerTime / 60);
         int seconds = Mathf.FloorToInt(timerTime % 60);

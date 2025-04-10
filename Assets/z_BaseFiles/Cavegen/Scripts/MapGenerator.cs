@@ -124,11 +124,13 @@ public class MapGenerator : MonoBehaviour
         {
 			if (remainingTime > 0)
 			{
-				remainingTime -= Time.deltaTime;
-			}
+                remainingTime -= Time.deltaTime;
+                timerText.color = Color.white;
+            }
 			else if (remainingTime < 0)
 			{
-				remainingTime = 0;
+                image.SetActive(true);
+                remainingTime = 0;
 				timerText.color = Color.green;
 			}
 			int minutes = Mathf.FloorToInt(remainingTime / 60);
