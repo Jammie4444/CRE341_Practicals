@@ -31,7 +31,7 @@ public class MapGenerator : MonoBehaviour
 	public int randomFillPercent;
 
     [SerializeField] int numberOfNPCs = 5;
-    [SerializeField] int numberOfGems = 5;
+    //[SerializeField] int numberOfGems = 5;
 	[SerializeField] List<GameObject> npcs = new List<GameObject>();
     [SerializeField] List<GameObject> gems = new List<GameObject>();
     [SerializeField] int numberWaypoints = 4;
@@ -49,6 +49,8 @@ public class MapGenerator : MonoBehaviour
 	public bool rock = true;
 
 	public GameObject image;
+
+	public float turnsLeft = 2;
 
     void Start()
     {
@@ -100,9 +102,10 @@ public class MapGenerator : MonoBehaviour
 
 
     void Update() {
-		if (Input.GetMouseButtonDown(1) && remainingTime <= 0) 
+		if (Input.GetMouseButtonDown(1) && remainingTime <= 0 && turnsLeft > 0) 
 		{
 			GenerateMap();
+			turnsLeft--;
 			surface.BuildNavMesh();
 
 			image.SetActive(false);
